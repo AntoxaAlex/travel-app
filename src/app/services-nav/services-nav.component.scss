@@ -1,0 +1,12 @@
+@import 'src/variables';
+
+:host {
+  width: 100%;
+  max-width: 760px;
+}
+
+.services-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

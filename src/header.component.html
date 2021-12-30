@@ -1,0 +1,20 @@
+<mat-toolbar class="navbar">
+  <span class="brand">Travel<span class="yellow-span">App</span></span>
+  <button
+    mat-icon-button
+    class="menu-btn"
+    aria-label="Example icon-button with menu icon"
+    (click)="expandContent()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <app-expanded-content
+    *ngIf="
+      isContentExpanded ||
+      pageSize === 'Medium' ||
+      pageSize === 'Large' ||
+      pageSize === 'XLarge'
+    "
+    [pageSize]="pageSize"
+  ></app-expanded-content>
+</mat-toolbar>

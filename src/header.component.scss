@@ -1,0 +1,28 @@
+@import 'src/variables';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10%;
+  padding: 1%;
+  box-sizing: border-box;
+  position: relative;
+  background-color: transparent;
+  margin-bottom: 2%;
+}
+
+.brand,
+.brand span {
+  font-size: 1.3rem;
+}
+
+.yellow-span {
+  color: $yellow;
+}
+
+@media (min-width: 960px) {
+  .menu-btn {
+    display: none;
+  }
+}

@@ -1,0 +1,7 @@
+<div class="services-nav">
+  <app-custom-link
+    *ngFor="let service of services"
+    [text]="service.title"
+    (linkClicked)="selectService(service)"
+  ></app-custom-link>
+</div>

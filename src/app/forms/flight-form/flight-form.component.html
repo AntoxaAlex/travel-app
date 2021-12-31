@@ -1,0 +1,114 @@
+<form (submit)="onSubmit()">
+  <div class="input-row left">
+    <mat-radio-group [formControl]="wayControl" aria-label="Select an option">
+      <mat-radio-button name="way" value="round-trip" [checked]="!isOneWay"
+        >Round trip</mat-radio-button
+      >
+      <mat-radio-button name="way" value="one-way" [checked]="isOneWay"
+        >One-way</mat-radio-button
+      >
+    </mat-radio-group>
+  </div>
+  <div class="input-row">
+    <mat-form-field appearance="fill">
+      <mat-label>From</mat-label>
+      <mat-select [formControl]="fromControl" id="from" required>
+        <mat-option *ngFor="let fromCity of formData.from" [value]="fromCity">
+          {{ fromCity }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="fromControl.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>To</mat-label>
+      <mat-select [formControl]="toControl" id="to" required>
+        <mat-option *ngFor="let toCity of formData.to" [value]="toCity">
+          {{ toCity }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="toControl.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="input-row {{ wayControl.value === 'round-trip' ? '' : 'left' }}">
+    <mat-form-field appearance="fill">
+      <mat-label>Depart on</mat-label>
+      <input
+        id="depart"
+        matInput
+        [matDatepicker]="departPicker"
+        [formControl]="departControl"
+        autocomplete="off"
+        required
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="departPicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #departPicker></mat-datepicker>
+      <mat-error *ngIf="departControl.invalid">{{
+        getErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+    <mat-form-field *ngIf="wayControl.value === 'round-trip'" appearance="fill">
+      <mat-label>Return on</mat-label>
+      <input
+        id="return"
+        matInput
+        [matDatepicker]="returnPicker"
+        [formControl]="returnControl"
+        autocomplete="off"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="returnPicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #returnPicker></mat-datepicker>
+      <mat-error
+        *ngIf="returnControl.invalid && wayControl.value === 'round-trip'"
+        >{{ getErrorMessage() }}</mat-error
+      >
+    </mat-form-field>
+  </div>
+  <div class="input-row">
+    <mat-form-field appearance="fill">
+      <mat-label>Guests</mat-label>
+      <mat-select [formControl]="guestsControl" id="guests">
+        <mat-option *ngFor="let guest of formData.guests" [value]="guest">
+          {{ guest }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Travel Class</mat-label>
+      <mat-select [formControl]="classControl" id="travelClass" required>
+        <mat-option
+          *ngFor="let travelClass of formData.travelClasses"
+          [value]="travelClass"
+        >
+          {{ travelClass }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="classControl.invalid">{{
+        getErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="input-row left">
+    <mat-form-field appearance="fill">
+      <mat-label>Airlines</mat-label>
+      <mat-select multiple [formControl]="airlinesControl" id="airlines">
+        <mat-option
+          *ngFor="let airline of formData.airlines"
+          [value]="airline"
+          >{{ airline }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="input-row">
+    <mat-checkbox id="near" class="example-margin" [formControl]="nearControl"
+      >Include Near by Airports</mat-checkbox
+    >
+    <button type="submit" mat-raised-button color="accent">Search</button>
+  </div>
+</form>

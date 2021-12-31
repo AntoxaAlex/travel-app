@@ -1,0 +1,40 @@
+<div class="modal-div">
+  <div class="modal-container">
+    <div class="modal-content">
+      <div class="close-btn" (click)="closeModal()">X</div>
+      <h2 class="modal-header">Success</h2>
+      <table mat-table [dataSource]="tableData" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="num">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{ element.num }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="airports">
+          <th mat-header-cell *matHeaderCellDef>Airports</th>
+          <td mat-cell *matCellDef="let element">{{ element.airports }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="carrier">
+          <th mat-header-cell *matHeaderCellDef>Carrier</th>
+          <td mat-cell *matCellDef="let element">{{ element.carrier }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>Price</th>
+          <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+        </ng-container>
+        <ng-container matColumnDef="duration">
+          <th mat-header-cell *matHeaderCellDef>Duration</th>
+          <td mat-cell *matCellDef="let element">{{ element.duration }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

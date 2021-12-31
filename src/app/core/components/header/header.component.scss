@@ -8,17 +8,14 @@
   padding: 1%;
   box-sizing: border-box;
   position: relative;
-  background-color: transparent;
+  background: $main-red-color;
   margin-bottom: 2%;
+  color: $white;
 }
 
 .brand,
 .brand span {
   font-size: 1.3rem;
-}
-
-.yellow-span {
-  color: $yellow;
 }
 
 @media (min-width: 960px) {

@@ -2,6 +2,7 @@
   <app-custom-link
     *ngFor="let service of services"
     [text]="service.title"
+    [color]="'red'"
     (linkClicked)="selectService(service)"
   ></app-custom-link>
 </div>

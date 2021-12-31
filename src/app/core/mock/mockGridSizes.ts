@@ -24,6 +24,10 @@ export const mockGridSizes: GridData = {
       },
       {
         colspan: 1,
+        rowspan: 1,
+      },
+      {
+        colspan: 1,
         rowspan: 3,
       },
       {
@@ -47,11 +51,16 @@ export const mockGridSizes: GridData = {
       },
       {
         colspan: 1,
-        rowspan: 6,
+        rowspan: 5,
       },
       {
         colspan: 1,
-        rowspan: 6,
+        rowspan: 5,
+      },
+
+      {
+        colspan: 2,
+        rowspan: 1,
       },
       {
         colspan: 1,
@@ -64,12 +73,12 @@ export const mockGridSizes: GridData = {
     ],
   },
   Medium: {
-    cols: 4,
-    rowHeight: '8%',
+    cols: 10,
+    rowHeight: '8.4%',
     gutterSize: '10px',
     gridItemsSize: [
       {
-        colspan: 4,
+        colspan: 10,
         rowspan: 1,
       },
       {
@@ -77,20 +86,24 @@ export const mockGridSizes: GridData = {
         rowspan: 9,
       },
       {
-        colspan: 1,
+        colspan: 3,
         rowspan: 6,
       },
       {
-        colspan: 2,
+        colspan: 6,
         rowspan: 6,
       },
       {
-        colspan: 2,
-        rowspan: 3,
+        colspan: 9,
+        rowspan: 1,
       },
       {
-        colspan: 1,
-        rowspan: 3,
+        colspan: 7,
+        rowspan: 2,
+      },
+      {
+        colspan: 2,
+        rowspan: 2,
       },
     ],
   },

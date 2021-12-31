@@ -10,6 +10,12 @@ import { ServicesListComponent } from './services-list/services-list.component';
 import { ServicesNavComponent } from './services-nav/services-nav.component';
 import { ServiceComponent } from './service/service.component';
 import { LinksComponent } from './links/links.component';
+import { FlightFormComponent } from './forms/flight-form/flight-form.component';
+import { CarFormComponent } from './forms/car-form/car-form.component';
+import { GuidFormComponent } from './forms/guid-form/guid-form.component';
+import { HotelFormComponent } from './forms/hotel-form/hotel-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +26,18 @@ import { LinksComponent } from './links/links.component';
     ServicesNavComponent,
     ServiceComponent,
     LinksComponent,
+    FlightFormComponent,
+    CarFormComponent,
+    GuidFormComponent,
+    HotelFormComponent,
+    ModalComponent,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, ShareModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    ShareModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

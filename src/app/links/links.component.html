@@ -1,1 +1,6 @@
-<p>links works!</p>
+<ul class="links-container">
+  <li *ngFor="let link of links" class="external-link">
+    <img class="external-link-icon" [src]="link.icon" alt="sm_icon" />
+    <app-custom-link [text]="link.name" [color]="'white'"></app-custom-link>
+  </li>
+</ul>

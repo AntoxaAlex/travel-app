@@ -1,0 +1,18 @@
+.input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3px 0;
+}
+
+.input-row.left {
+  justify-content: left;
+}
+
+mat-form-field {
+  width: 47%;
+}
+
+mat-radio-button {
+  margin-right: 10px;
+}

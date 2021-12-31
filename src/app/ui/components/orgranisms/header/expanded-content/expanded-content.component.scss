@@ -1,0 +1,66 @@
+@import '../../../../../../variables';
+
+:host {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.expanded-container {
+  position: absolute;
+  top: 77px;
+  right: 4px;
+  border-radius: 10px;
+  background-color: $main-red-color;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.topics-container {
+  padding: 0 2%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  list-style: none;
+  margin: 0;
+}
+
+.search-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid $light-gray;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.search-input.focused {
+  border-color: $white;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: $white;
+}
+
+@media (min-width: 960px) {
+  :host {
+    position: initial;
+  }
+
+  .expanded-container {
+    position: initial;
+    background-color: transparent;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .topics-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1% 0;
+  }
+}

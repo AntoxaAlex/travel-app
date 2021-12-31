@@ -1,0 +1,65 @@
+<mat-grid-list
+  [cols]="gridSize.cols"
+  [rowHeight]="gridSize.rowHeight"
+  [gutterSize]="gridSize.gutterSize"
+>
+  <mat-grid-tile
+    [colspan]="gridSize.gridItemsSize[0].colspan"
+    [rowspan]="gridSize.gridItemsSize[0].rowspan"
+  >
+    <app-services-nav
+      [services]="services"
+      (serviceSelected)="selectService($event)"
+    ></app-services-nav>
+  </mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="pageSize !== sizes.XSmall && pageSize !== sizes.Small"
+    [colspan]="gridSize.gridItemsSize[1].colspan"
+    [rowspan]="gridSize.gridItemsSize[1].rowspan"
+  >
+    <app-services-list
+      [service]="selectedService || services[0]"
+      (sectionSelected)="selectSection($event)"
+    ></app-services-list>
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="gridSize.gridItemsSize[2].colspan"
+    [rowspan]="gridSize.gridItemsSize[2].rowspan"
+  >
+    <div
+      class="section-img"
+      [style.background-image]="'url(' + selectedSection.imagePath + ')'"
+    >
+      <h1 class="section-image-title">{{ selectedSection.sectionName }}</h1>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="gridSize.gridItemsSize[3].colspan"
+    [rowspan]="gridSize.gridItemsSize[3].rowspan"
+  >
+    <app-service
+      [service]="selectedService"
+      [selectedSection]="selectedSection"
+      (flightIsFound)="openModal($event)"
+    ></app-service>
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="gridSize.gridItemsSize[4].colspan"
+    [rowspan]="gridSize.gridItemsSize[4].rowspan"
+  >
+    <hr class="custom-hr" />
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="gridSize.gridItemsSize[5].colspan"
+    [rowspan]="gridSize.gridItemsSize[5].rowspan"
+  >
+    <p class="section-text">{{ selectedSection.text }}</p>
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="gridSize.gridItemsSize[6].colspan"
+    [rowspan]="gridSize.gridItemsSize[6].rowspan"
+    z
+  >
+    <app-links [links]="externalLinks"></app-links>
+  </mat-grid-tile>
+</mat-grid-list>

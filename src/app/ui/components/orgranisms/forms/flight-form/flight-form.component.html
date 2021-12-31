@@ -1,0 +1,130 @@
+<form [formGroup]="flightForm">
+  <div class="input-row left">
+    <mat-radio-group formControlName="way" aria-label="Select an option">
+      <mat-radio-button name="way" value="round-trip" [checked]="!isOneWay"
+        >Round trip</mat-radio-button
+      >
+      <mat-radio-button name="way" value="one-way" [checked]="isOneWay"
+        >One-way</mat-radio-button
+      >
+    </mat-radio-group>
+  </div>
+  <div class="input-row">
+    <mat-form-field appearance="fill">
+      <mat-label>From</mat-label>
+      <mat-select formControlName="from" id="from" required>
+        <mat-option *ngFor="let fromCity of formData.from" [value]="fromCity">
+          {{ fromCity }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="flightForm.get('from')?.invalid">{{
+        fieldRequiredError
+      }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>To</mat-label>
+      <mat-select formControlName="to" id="to" required>
+        <mat-option *ngFor="let toCity of formData.to" [value]="toCity">
+          {{ toCity }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="flightForm.get('to')?.invalid">{{
+        fieldRequiredError
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div
+    class="input-row {{
+      flightForm.get('way')?.value === 'round-trip' ? '' : 'left'
+    }}"
+  >
+    <mat-form-field appearance="fill">
+      <mat-label>Depart on</mat-label>
+      <input
+        id="depart"
+        matInput
+        [matDatepicker]="departPicker"
+        formControlName="departDate"
+        autocomplete="off"
+        required
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="departPicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #departPicker></mat-datepicker>
+      <mat-error *ngIf="flightForm.get('depart')?.invalid">{{
+        fieldRequiredError
+      }}</mat-error>
+    </mat-form-field>
+    <mat-form-field
+      *ngIf="flightForm.get('way')?.value === 'round-trip'"
+      appearance="fill"
+    >
+      <mat-label>Return on</mat-label>
+      <input
+        id="return"
+        matInput
+        [matDatepicker]="returnPicker"
+        formControlName="returnDate"
+        autocomplete="off"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="returnPicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #returnPicker></mat-datepicker>
+      <mat-error
+        *ngIf="
+          flightForm.get('return')?.invalid &&
+          flightForm.get('way')?.value === 'round-trip'
+        "
+        >{{ fieldRequiredError }}</mat-error
+      >
+    </mat-form-field>
+  </div>
+  <div class="input-row">
+    <mat-form-field appearance="fill">
+      <mat-label>Guests</mat-label>
+      <mat-select formControlName="guests" id="guests">
+        <mat-option *ngFor="let guest of formData.guests" [value]="guest">
+          {{ guest }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Travel Class</mat-label>
+      <mat-select formControlName="travelClass" id="travelClass" required>
+        <mat-option
+          *ngFor="let travelClass of formData.travelClasses"
+          [value]="travelClass"
+        >
+          {{ travelClass }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="flightForm.get('travelClass')?.invalid">{{
+        fieldRequiredError
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="input-row left">
+    <mat-form-field appearance="fill">
+      <mat-label>Airlines</mat-label>
+      <mat-select multiple formControlName="airlines" id="airlines">
+        <mat-option
+          *ngFor="let airline of formData.airlines"
+          [value]="airline"
+          >{{ airline }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="input-row">
+    <mat-checkbox id="near" class="example-margin" formControlName="near"
+      >Include Near by Airports</mat-checkbox
+    >
+    <button (click)="onSubmit()" mat-raised-button color="accent">
+      Search
+    </button>
+  </div>
+</form>

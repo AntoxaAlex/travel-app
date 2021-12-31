@@ -13,6 +13,8 @@ import { mockServices } from './core/mock/mockServices';
 import { HttpClient } from '@angular/common/http';
 import { FlightData } from './core/interfaces/flight-data.interface';
 import { eAirportCodes } from './core/enums/airport-codes.enum';
+import { eSizes } from './core/enums/sizes.enum';
+import { eWays } from './core/enums/ways.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -20,11 +22,11 @@ import { eAirportCodes } from './core/enums/airport-codes.enum';
 export class AppService {
   public pageSize = new Subject<string>();
   public displayNameMap = new Map([
-    [Breakpoints.XSmall, 'XSmall'],
-    [Breakpoints.Small, 'Small'],
-    [Breakpoints.Medium, 'Medium'],
-    [Breakpoints.Large, 'Large'],
-    [Breakpoints.XLarge, 'XLarge'],
+    [Breakpoints.XSmall, eSizes.XSmall],
+    [Breakpoints.Small, eSizes.Small],
+    [Breakpoints.Medium, eSizes.Medium],
+    [Breakpoints.Large, eSizes.Large],
+    [Breakpoints.XLarge, eSizes.XLarge],
   ]);
 
   constructor(
@@ -48,7 +50,8 @@ export class AppService {
 
   public getGridSizes(size: string): GridSize {
     const sizes: any = { ...mockGridSizes };
-    size = size === 'Large' || size === 'XLarge' ? 'Medium' : size;
+    size =
+      size === eSizes.Large || size === eSizes.XLarge ? eSizes.Medium : size;
     return sizes[size];
   }
 
@@ -61,19 +64,19 @@ export class AppService {
     const departCode = codes[flightData.from];
     const arrivalCode = flightData.to ? codes[flightData.to] : '';
     const fromWay =
-      flightData.way === 'one-way'
+      flightData.way === eWays.oneWay
         ? `${departCode}`
         : `${departCode},${arrivalCode}`;
     const backWay =
-      flightData.way === 'one-way'
+      flightData.way === eWays.oneWay
         ? `${arrivalCode}`
         : `${arrivalCode},${departCode}`;
     const departureDate =
-      flightData.way === 'one-way'
-        ? `${flightData.depart!.toDateString()}`
-        : `${flightData.depart!.toDateString()},${flightData.return!.toDateString()}`;
+      flightData.way === eWays.oneWay
+        ? `${flightData.departDate}`
+        : `${flightData.departDate},${flightData.returnDate}`;
     const url =
-      flightData.way === 'round-trip'
+      flightData.way === eWays.roundTrip
         ? 'https://priceline-com-provider.p.rapidapi.com/v2/flight/roundTrip'
         : 'https://priceline-com-provider.p.rapidapi.com/v2/flight/departures';
     console.log(fromWay, backWay, departureDate);

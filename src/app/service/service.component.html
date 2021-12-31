@@ -1,8 +1,0 @@
-<app-flight-form
-  [formData]="service.formData!"
-  [selectedSection]="selectedSection"
-  (formSubmitted)="submitFlight($event)"
-></app-flight-form>
-<app-hotel-form *ngIf="service.title === 'Hotels'"></app-hotel-form>
-<app-car-form *ngIf="service.title === 'Rent car'"></app-car-form>
-<app-guid-form *ngIf="service.title === 'Find guid'"></app-guid-form>

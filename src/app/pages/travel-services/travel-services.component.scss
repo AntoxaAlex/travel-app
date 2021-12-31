@@ -1,0 +1,52 @@
+@import '../../../variables';
+@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+
+.main-content {
+  height: 88%;
+  overflow-y: auto;
+  border-radius: 20px;
+}
+
+.section-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-position: center;
+  background-size: cover;
+}
+
+.section-image-title {
+  font-size: 8em;
+  color: $white;
+  font-family: 'Vujahday Script', cursive;
+}
+
+.custom-hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    $main-red-color,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.section-text {
+  margin: 5px 0;
+  overflow-y: auto;
+}
+
+.section-text:first-letter {
+  color: $main-red-color;
+  font-size: 1.3em;
+}
+
+@media (min-width: 960px) {
+  .section-image-title {
+  }
+}

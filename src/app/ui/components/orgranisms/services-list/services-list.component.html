@@ -1,10 +1,9 @@
 <div class="service-list">
-  <p class="service-list-header">Best Places</p>
   <img
     *ngFor="let section of service.serviceSections"
     [src]="section.imagePath"
     (click)="selectSection(section)"
     alt="image_link"
     class="link-img"
-  />
+  >
 </div>

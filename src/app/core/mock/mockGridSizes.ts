@@ -12,7 +12,7 @@ export const mockGridSizes: GridData = {
       },
       {
         colspan: 1,
-        rowspan: 9,
+        rowspan: 1,
       },
       {
         colspan: 1,
@@ -20,7 +20,7 @@ export const mockGridSizes: GridData = {
       },
       {
         colspan: 1,
-        rowspan: 6,
+        rowspan: 7,
       },
       {
         colspan: 1,
@@ -46,16 +46,16 @@ export const mockGridSizes: GridData = {
         rowspan: 1,
       },
       {
-        colspan: 1,
-        rowspan: 9,
+        colspan: 2,
+        rowspan: 1,
       },
       {
         colspan: 1,
-        rowspan: 5,
+        rowspan: 7,
       },
       {
         colspan: 1,
-        rowspan: 5,
+        rowspan: 7,
       },
 
       {
@@ -64,11 +64,11 @@ export const mockGridSizes: GridData = {
       },
       {
         colspan: 1,
-        rowspan: 3,
+        rowspan: 4,
       },
       {
         colspan: 1,
-        rowspan: 3,
+        rowspan: 4,
       },
     ],
   },

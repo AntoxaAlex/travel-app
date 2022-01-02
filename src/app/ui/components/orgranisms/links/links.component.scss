@@ -5,7 +5,7 @@
   background-color: $main-red-color;
   padding: 5px;
   box-sizing: border-box;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
 }
 
 .links-container {
@@ -22,4 +22,10 @@
 
 .external-link-icon {
   width: 20px;
+}
+
+@media (min-width: 960px) {
+  :host {
+    border-radius: 10px 0 0 10px;
+  }
 }

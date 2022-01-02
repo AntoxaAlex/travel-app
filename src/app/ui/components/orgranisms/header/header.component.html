@@ -8,12 +8,13 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
+  <!--Expanded content-->
   <app-expanded-content
     *ngIf="
       isContentExpanded ||
-      pageSize === 'Medium' ||
-      pageSize === 'Large' ||
-      pageSize === 'XLarge'
+      pageSize === sizes.Medium ||
+      pageSize === sizes.Large ||
+      pageSize === sizes.XLarge
     "
     [pageSize]="pageSize"
   ></app-expanded-content>

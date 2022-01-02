@@ -1,16 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import {eSizes} from "../../../../core/enums/sizes.enum";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  @Input() public pageSize: string;
-  public isContentExpanded: boolean = false;
-  constructor() {}
+export class HeaderComponent {
 
-  ngOnInit(): void {}
+  public sizes = eSizes;
+  public isContentExpanded: boolean = false;
+  @Input() public pageSize: string;
+
+  constructor() {}
 
   public expandContent(): void {
     this.isContentExpanded = !this.isContentExpanded;

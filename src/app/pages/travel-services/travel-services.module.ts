@@ -7,13 +7,11 @@ import { ServicesNavComponent } from '../../ui/components/orgranisms/services-na
 import { ServiceComponent } from '../../ui/components/orgranisms/service/service.component';
 import { LinksComponent } from '../../ui/components/orgranisms/links/links.component';
 import { FlightFormComponent } from '../../ui/components/orgranisms/forms/flight-form/flight-form.component';
-import { CarFormComponent } from '../../ui/components/orgranisms/forms/car-form/car-form.component';
-import { GuidFormComponent } from '../../ui/components/orgranisms/forms/guid-form/guid-form.component';
-import { HotelFormComponent } from '../../ui/components/orgranisms/forms/hotel-form/hotel-form.component';
 import { TravelServicesComponent } from './travel-services.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AppService } from '../../app.service';
 import { ModalService } from '../../core/services/modal.service';
+import {ModalComponent} from "../../ui/components/orgranisms/modal/modal.component";
 
 @NgModule({
   declarations: [
@@ -22,10 +20,8 @@ import { ModalService } from '../../core/services/modal.service';
     ServiceComponent,
     LinksComponent,
     FlightFormComponent,
-    CarFormComponent,
-    GuidFormComponent,
-    HotelFormComponent,
     TravelServicesComponent,
+    ModalComponent,
   ],
   imports: [CommonModule, TravelServicesRoutingModule, SharedModule],
   providers: [AppService, ModalService],
@@ -35,9 +31,6 @@ import { ModalService } from '../../core/services/modal.service';
     ServiceComponent,
     LinksComponent,
     FlightFormComponent,
-    CarFormComponent,
-    GuidFormComponent,
-    HotelFormComponent,
     TravelServicesComponent,
   ],
 })

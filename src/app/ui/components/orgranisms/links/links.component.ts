@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { ExternalLink } from '../../../../core/interfaces/external-link.interface';
 
@@ -7,9 +7,8 @@ import { ExternalLink } from '../../../../core/interfaces/external-link.interfac
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.scss'],
 })
-export class LinksComponent implements OnInit {
+export class LinksComponent {
   @Input() public links: ExternalLink[];
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor() {}
 }

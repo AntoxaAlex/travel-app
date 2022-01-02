@@ -1,5 +1,12 @@
 .main-content {
   height: 88%;
   overflow-y: auto;
-  border-radius: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+  .main-content {
+    width: 100%;
+  }
 }

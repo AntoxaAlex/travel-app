@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Service } from '../../../../core/interfaces/service.interface';
 import { eServiceTitles } from '../../../../core/enums/service-titles.enum';
@@ -8,12 +8,11 @@ import { eServiceTitles } from '../../../../core/enums/service-titles.enum';
   templateUrl: './services-nav.component.html',
   styleUrls: ['./services-nav.component.scss'],
 })
-export class ServicesNavComponent implements OnInit {
+export class ServicesNavComponent {
   @Input() public services: Service[];
   @Output() public serviceSelected = new EventEmitter<Service>();
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor() {}
 
   public selectService(service: Service): void {
     if (service.title === eServiceTitles.flights) {

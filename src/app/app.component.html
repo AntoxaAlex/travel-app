@@ -2,8 +2,3 @@
 <div class="main-content">
   <router-outlet></router-outlet>
 </div>
-<app-modal
-  *ngIf="isModalOpened"
-  [modalData]="modalData"
-  (modalClosed)="closeModal()"
-></app-modal>

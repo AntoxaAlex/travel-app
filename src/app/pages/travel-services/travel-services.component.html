@@ -1,8 +1,10 @@
+<!--Main content grid list-->
 <mat-grid-list
   [cols]="gridSize.cols"
   [rowHeight]="gridSize.rowHeight"
   [gutterSize]="gridSize.gutterSize"
 >
+  <!--Travel services navigation grid item-->
   <mat-grid-tile
     [colspan]="gridSize.gridItemsSize[0].colspan"
     [rowspan]="gridSize.gridItemsSize[0].rowspan"
@@ -12,8 +14,8 @@
       (serviceSelected)="selectService($event)"
     ></app-services-nav>
   </mat-grid-tile>
+  <!--Travel services sections list grid item-->
   <mat-grid-tile
-    *ngIf="pageSize !== sizes.XSmall && pageSize !== sizes.Small"
     [colspan]="gridSize.gridItemsSize[1].colspan"
     [rowspan]="gridSize.gridItemsSize[1].rowspan"
   >
@@ -22,6 +24,7 @@
       (sectionSelected)="selectSection($event)"
     ></app-services-list>
   </mat-grid-tile>
+  <!--Travel service image grid item-->
   <mat-grid-tile
     [colspan]="gridSize.gridItemsSize[2].colspan"
     [rowspan]="gridSize.gridItemsSize[2].rowspan"
@@ -33,6 +36,7 @@
       <h1 class="section-image-title">{{ selectedSection.sectionName }}</h1>
     </div>
   </mat-grid-tile>
+  <!--Travel service grid item-->
   <mat-grid-tile
     [colspan]="gridSize.gridItemsSize[3].colspan"
     [rowspan]="gridSize.gridItemsSize[3].rowspan"
@@ -43,23 +47,30 @@
       (flightIsFound)="openModal($event)"
     ></app-service>
   </mat-grid-tile>
+  <!--Hr grid item-->
   <mat-grid-tile
     [colspan]="gridSize.gridItemsSize[4].colspan"
     [rowspan]="gridSize.gridItemsSize[4].rowspan"
   >
     <hr class="custom-hr" />
   </mat-grid-tile>
+  <!--Travel service text grid item-->
   <mat-grid-tile
     [colspan]="gridSize.gridItemsSize[5].colspan"
     [rowspan]="gridSize.gridItemsSize[5].rowspan"
   >
     <p class="section-text">{{ selectedSection.text }}</p>
   </mat-grid-tile>
+  <!--External link grid item-->
   <mat-grid-tile
     [colspan]="gridSize.gridItemsSize[6].colspan"
     [rowspan]="gridSize.gridItemsSize[6].rowspan"
-    z
   >
     <app-links [links]="externalLinks"></app-links>
   </mat-grid-tile>
 </mat-grid-list>
+<app-modal
+  *ngIf="isModalOpened"
+  [tableData]="modalData"
+  (modalClosed)="closeModal()"
+></app-modal>

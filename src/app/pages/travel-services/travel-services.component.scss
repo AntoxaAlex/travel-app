@@ -1,12 +1,6 @@
 @import '../../../variables';
 @import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
 
-.main-content {
-  height: 88%;
-  overflow-y: auto;
-  border-radius: 20px;
-}
-
 .section-img {
   width: 100%;
   height: 100%;
@@ -39,14 +33,11 @@
 .section-text {
   margin: 5px 0;
   overflow-y: auto;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .section-text:first-letter {
   color: $main-red-color;
   font-size: 1.3em;
-}
-
-@media (min-width: 960px) {
-  .section-image-title {
-  }
 }

@@ -1,4 +1,6 @@
 <form [formGroup]="flightForm">
+
+  <!--Way types element-->
   <div class="input-row left">
     <mat-radio-group formControlName="way" aria-label="Select an option">
       <mat-radio-button name="way" value="round-trip" [checked]="!isOneWay"
@@ -9,6 +11,8 @@
       >
     </mat-radio-group>
   </div>
+
+  <!--Depart and destination point elements-->
   <div class="input-row">
     <mat-form-field appearance="fill">
       <mat-label>From</mat-label>
@@ -33,6 +37,8 @@
       }}</mat-error>
     </mat-form-field>
   </div>
+
+  <!--Depart and return date elements-->
   <div
     class="input-row {{
       flightForm.get('way')?.value === 'round-trip' ? '' : 'left'
@@ -54,7 +60,7 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #departPicker></mat-datepicker>
       <mat-error *ngIf="flightForm.get('depart')?.invalid">{{
-        fieldRequiredError
+        invalidDate
       }}</mat-error>
     </mat-form-field>
     <mat-form-field
@@ -83,6 +89,8 @@
       >
     </mat-form-field>
   </div>
+
+  <!--Guests and travel class elements-->
   <div class="input-row">
     <mat-form-field appearance="fill">
       <mat-label>Guests</mat-label>
@@ -107,6 +115,8 @@
       }}</mat-error>
     </mat-form-field>
   </div>
+
+  <!--Airlines element-->
   <div class="input-row left">
     <mat-form-field appearance="fill">
       <mat-label>Airlines</mat-label>
@@ -119,6 +129,8 @@
       </mat-select>
     </mat-form-field>
   </div>
+
+  <!--Near airports and submit button elements-->
   <div class="input-row">
     <mat-checkbox id="near" class="example-margin" formControlName="near"
       >Include Near by Airports</mat-checkbox

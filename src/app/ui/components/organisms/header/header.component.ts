@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { eSizes } from "../../../../core/enums/sizes.enum";
+import { eSizes } from '../../../../core/enums/sizes.enum';
 
 @Component({
   selector: 'app-header',

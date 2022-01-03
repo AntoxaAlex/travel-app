@@ -1,11 +1,11 @@
-import {Component, EventEmitter, Input, OnDestroy, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { Subscription } from "rxjs";
 
 import { Service, ServiceSection} from '../../../../core/interfaces/service.interface';
 import { FlightData } from '../../../../core/interfaces/flight-data.interface';
 import { AppService } from '../../../../app.service';
 import { eServiceTitles } from '../../../../core/enums/service-titles.enum';
-import { OneWayRespond, RoundTripRespond } from "../../../../core/interfaces/travel-app-respond.interface";
+import { OneWayRespond, RoundTripRespond } from '../../../../core/interfaces/travel-app-respond.interface';
 
 @Component({
   selector: 'app-service',

@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './ui/components/orgranisms/header/header.component';
-import { ExpandedContentComponent } from './ui/components/orgranisms/header/expanded-content/expanded-content.component';
+import { HeaderComponent } from './ui/components/organisms/header/header.component';
+import { ExpandedContentComponent } from './ui/components/organisms/header/expanded-content/expanded-content.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({

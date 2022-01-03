@@ -15,10 +15,24 @@ describe('CustomLinkComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CustomLinkComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.text = 'Some text'
+    component.color = '#ffffff'
+    fixture.detectChanges()
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should exist', () => {
+    expect(component).toBeDefined();
+  });
+
+  it('should display text param', () => {
+    const linkElement: HTMLElement = fixture.nativeElement;
+    const span = linkElement.querySelector('.custom-link')!;
+    expect(span.textContent).toEqual('Some text')
+  });
+
+  it('should set color attribute', () => {
+    const linkElement: HTMLElement = fixture.nativeElement;
+    const span = linkElement.querySelector('.custom-link')!;
+    expect(span.classList).toContain('#ffffff')
   });
 });

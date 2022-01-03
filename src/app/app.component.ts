@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { map, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { AppService } from './app.service';
 import { GridSize } from './core/interfaces/grid-size.interface';
@@ -12,7 +12,7 @@ import { GridSize } from './core/interfaces/grid-size.interface';
 export class AppComponent implements OnInit, OnDestroy {
   public pageSize: string;
   public gridSize: GridSize;
-  private sizeSubscription: Subscription;
+  public sizeSubscription: Subscription;
 
   constructor(
     private appService: AppService,
@@ -20,9 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     //Create size subscription to get actual page size
-    this.sizeSubscription = this.appService.getSize().pipe(
-      map((data) => Object.keys(data.breakpoints).find((query) => data.breakpoints[query])!),
-    )
+    this.sizeSubscription = this.appService.getSizeSubscription()
       .subscribe((query) => {
         this.pageSize = this.appService.displayNameMap.get(query)!;
       });

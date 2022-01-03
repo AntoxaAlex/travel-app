@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output,} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import * as moment from "moment";
+import * as moment from 'moment';
 
 import { ServiceFormType } from '../../../../../core/types/service.type';
 import { FlightData } from '../../../../../core/interfaces/flight-data.interface';
@@ -70,7 +70,7 @@ export class FlightFormComponent {
       to: new FormControl('', [Validators.required, this.notSamePlaces]),
       departDate: new FormControl(null, [Validators.required,this.notEarlyDateValidator]),
       travelClass: new FormControl(''),
-      returnDate: new FormControl('',[Validators.required,this.notEarlyDateValidator,this.invalidReturnDate]),
+      returnDate: new FormControl(''),
       guests: new FormControl(1, [Validators.required]),
       airlines: new FormControl([]),
       near: new FormControl(false),

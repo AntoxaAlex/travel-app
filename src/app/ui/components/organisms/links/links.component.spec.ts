@@ -1,6 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ExternalLink } from '../../../../core/interfaces/external-link.interface';
 
 import { LinksComponent } from './links.component';
+
+const externalLinks: ExternalLink[] = [
+  {
+    href: 'href',
+    icon: 'icon',
+    name: 'name'
+  },
+  {
+    href: 'href',
+    icon: 'icon',
+    name: 'name'
+  },
+  {
+    href: 'href',
+    icon: 'icon',
+    name: 'name'
+  },
+]
 
 describe('LinksComponent', () => {
   let component: LinksComponent;
@@ -15,10 +34,13 @@ describe('LinksComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LinksComponent);
     component = fixture.componentInstance;
+    component.links = externalLinks;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should exist', () => {
     expect(component).toBeTruthy();
   });
+
+
 });

@@ -8,7 +8,7 @@ import { ExternalLink } from '../../core/interfaces/external-link.interface';
 import { mockExternalLinks } from '../../core/mock/mockExternalLinks';
 import { ModalService } from '../../core/services/modal.service';
 import { eSizes } from '../../core/enums/sizes.enum';
-import { ModalData } from "../../core/interfaces/modal";
+import { ModalData } from '../../core/interfaces/modal';
 
 @Component({
   selector: 'app-travel-services',
@@ -27,7 +27,7 @@ export class TravelServicesComponent implements OnInit, OnDestroy {
   public sizes = eSizes;
   public isModalOpened: boolean = false;
   public modalData: any;
-  private modalSubscription: Subscription;
+  public modalSubscription: Subscription;
 
   constructor(
     private appService: AppService,
@@ -36,14 +36,11 @@ export class TravelServicesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     //Create size subscription to get actual page size
-    this.sizeSubscription = this.appService.getSize().subscribe((data) => {
-      for (const query of Object.keys(data.breakpoints)) {
-        if (data.breakpoints[query]) {
-          this.pageSize = this.appService.displayNameMap.get(query)!;
-          this.gridSize = this.appService.getGridSizes(this.pageSize);
-        }
-      }
-    });
+    this.sizeSubscription = this.appService.getSizeSubscription()
+      .subscribe((query) => {
+        this.pageSize = this.appService.displayNameMap.get(query)!;
+        this.gridSize = this.appService.getGridSizes(this.pageSize);
+      });
     //Create modal subscription to get actual modal data
     this.modalSubscription = this.modalService.modalDataChanged.subscribe((modalData: ModalData) => {
       this.isModalOpened = modalData.isModalOpened;
@@ -65,6 +62,7 @@ export class TravelServicesComponent implements OnInit, OnDestroy {
     //Unsubscribe subscriptions
     this.sizeSubscription.unsubscribe();
     this.serviceSubscription.unsubscribe();
+    this.modalSubscription.unsubscribe()
   }
 
   public selectService(service: Service): void {

@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TravelServicesRoutingModule } from './travel-services-routing.module';
-import { ServicesListComponent } from '../../ui/components/orgranisms/services-list/services-list.component';
-import { ServicesNavComponent } from '../../ui/components/orgranisms/services-nav/services-nav.component';
-import { ServiceComponent } from '../../ui/components/orgranisms/service/service.component';
-import { LinksComponent } from '../../ui/components/orgranisms/links/links.component';
-import { FlightFormComponent } from '../../ui/components/orgranisms/forms/flight-form/flight-form.component';
+import { ServicesListComponent } from '../../ui/components/organisms/services-list/services-list.component';
+import { ServicesNavComponent } from '../../ui/components/organisms/services-nav/services-nav.component';
+import { ServiceComponent } from '../../ui/components/organisms/service/service.component';
+import { LinksComponent } from '../../ui/components/organisms/links/links.component';
+import { FlightFormComponent } from '../../ui/components/organisms/forms/flight-form/flight-form.component';
 import { TravelServicesComponent } from './travel-services.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AppService } from '../../app.service';
 import { ModalService } from '../../core/services/modal.service';
-import { ModalComponent } from "../../ui/components/orgranisms/modal/modal.component";
+import { ModalComponent } from '../../ui/components/organisms/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -33,5 +33,6 @@ import { ModalComponent } from "../../ui/components/orgranisms/modal/modal.compo
     FlightFormComponent,
     TravelServicesComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TravelServicesModule {}

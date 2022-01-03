@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HeaderComponent } from './header.component';
+
+import { eSizes } from '../../../../core/enums/sizes.enum';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -20,5 +21,16 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should expand content',  () => {
+    component.expandContent();
+    expect(component.isContentExpanded).toBe(true)
+  });
+
+  it('should get size', () => {
+    component.pageSize = eSizes.Medium;
+    fixture.detectChanges();
+    expect(component.pageSize).toBe(eSizes.Medium)
   });
 });

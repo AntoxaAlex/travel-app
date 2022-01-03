@@ -8,7 +8,7 @@ import { ExternalLink } from '../../core/interfaces/external-link.interface';
 import { mockExternalLinks } from '../../core/mock/mockExternalLinks';
 import { ModalService } from '../../core/services/modal.service';
 import { eSizes } from '../../core/enums/sizes.enum';
-import {ModalData} from "../../core/interfaces/modal";
+import { ModalData } from "../../core/interfaces/modal";
 
 @Component({
   selector: 'app-travel-services',

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import {Service, ServiceSection } from '../../../../core/interfaces/service.interface';
+import { Service, ServiceSection } from '../../../../core/interfaces/service.interface';
 
 @Component({
   selector: 'app-services-list',

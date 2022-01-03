@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  BreakpointObserver,
-  Breakpoints,
-  BreakpointState,
-} from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable, of, Subject } from 'rxjs';
 import * as moment from "moment";
 import { HttpClient } from '@angular/common/http';
@@ -16,8 +12,8 @@ import { FlightData } from './core/interfaces/flight-data.interface';
 import { eAirportCodes } from './core/enums/airport-codes.enum';
 import { eSizes } from './core/enums/sizes.enum';
 import { eWays } from './core/enums/ways.enum';
-import {FlightDetail} from "./core/interfaces/flights-table.interface";
-import {Carrier} from "./core/interfaces/travel-app-respond.interface";
+import { FlightDetail } from "./core/interfaces/flights-table.interface";
+import { Carrier } from "./core/interfaces/travel-app-respond.interface";
 
 @Injectable({
   providedIn: 'root',
@@ -103,7 +99,7 @@ export class AppService {
   }
 
   public createTableData(respond: any):FlightDetail[] | void{
-    let way: string = respond.getAirFlightDepartures ? 'one-way' : 'round-trip';
+    let way: string = respond.getAirFlightDepartures ? eWays.oneWay : eWays.roundTrip;
     let num: number;
     let from: string;
     let carrier
@@ -113,7 +109,7 @@ export class AppService {
     const tripFlights: FlightDetail[] = [];
 
     //Create array of one-way flight details for modal table
-    if(way === 'one-way'){
+    if(way === eWays.oneWay){
       let index = 1;
       const itineraryArr = respond.getAirFlightDepartures.results.result.itinerary_data
       for (let itinerary in itineraryArr){
@@ -144,7 +140,7 @@ export class AppService {
       return tripFlights
     }
     //Create array of round-trip flight details for modal table
-    if(way === 'round-trip'){
+    if(way === eWays.roundTrip){
       respond.getAirFlightRoundTrip.results.air_search_rsp.total_trip_summary.carrier.map((mapCarrier: Carrier,index: number) => {
         //Restrict response data to 10 elements
         if(index < 10) {

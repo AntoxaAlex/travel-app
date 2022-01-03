@@ -11,7 +11,7 @@ import { TravelServicesComponent } from './travel-services.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AppService } from '../../app.service';
 import { ModalService } from '../../core/services/modal.service';
-import {ModalComponent} from "../../ui/components/orgranisms/modal/modal.component";
+import { ModalComponent } from "../../ui/components/orgranisms/modal/modal.component";
 
 @NgModule({
   declarations: [
